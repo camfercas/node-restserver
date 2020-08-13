@@ -20,7 +20,7 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.use(require('./routes/index'));
 
-mongoose.connect(process.env.urlBD, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect(process.env.urlBD, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
     if (err) throw new Error(err);
 
     console.log('Base de datos ONLINE');
