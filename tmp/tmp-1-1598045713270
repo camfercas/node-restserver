@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d7e1eb5e-e21b-4715-a5dc-953c761ca9be" activeEnvironment="Default" name="Mio" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2168d624-d715-459d-b64e-5b144b7914d6" wsaVersion="NONE" name="WSNuevaRecepcionPendienteSoapBinding" type="wsdl" bindingName="{GeoInventarios}WSNuevaRecepcionPendienteSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente?wsdl"><con:part><con:url>http://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente?wsdl</con:url><con:content><![CDATA[<definitions name="WSNuevaRecepcionPendiente" targetNamespace="GeoInventarios" xmlns:wsdlns="GeoInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="GeoInventarios" xmlns:tns1="GeneXus">
+  <types>
+    <schema targetNamespace="GeoInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="GeneXus"/>
+      <complexType name="SDTDatosNuevaRecepcionPendiente">
+        <sequence>
+          <element name="Local" type="xsd:string"></element>
+          <element name="Tipo" type="xsd:string"></element>
+          <element name="RefExterna" type="xsd:string"></element>
+          <element name="Proveedor" type="xsd:long"></element>
+          <element name="Fecha" type="xsd:date" nillable="true"></element>
+          <element name="Obs" type="xsd:string"></element>
+          <element name="Productos">
+            <complexType>
+              <sequence>
+                <element minOccurs="0" maxOccurs="unbounded" name="Producto" type="tns:SDTDatosNuevaRecepcionPendiente.Producto"></element>
+              </sequence>
+            </complexType>
+          </element>
+          <element name="Bultos">
+            <complexType>
+              <sequence>
+                <element minOccurs="0" maxOccurs="unbounded" name="Bulto" type="tns:SDTDatosNuevaRecepcionPendiente.Bulto"></element>
+              </sequence>
+            </complexType>
+          </element>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfSDTDatosNuevaRecepcionPendiente.Producto">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Producto" type="tns:SDTDatosNuevaRecepcionPendiente.Producto"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTDatosNuevaRecepcionPendiente.Producto">
+        <sequence>
+          <element name="Linea" type="xsd:long"></element>
+          <element name="Id" type="xsd:string"></element>
+          <element name="BultoRefExterna" type="xsd:string"></element>
+          <element name="Cantidad" type="xsd:int"></element>
+          <element name="RefExterna" type="xsd:string"></element>
+          <element name="DatosOrigen" type="xsd:string"></element>
+          <element name="UnidadMedida" type="xsd:long"></element>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfSDTDatosNuevaRecepcionPendiente.Bulto">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Bulto" type="tns:SDTDatosNuevaRecepcionPendiente.Bulto"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTDatosNuevaRecepcionPendiente.Bulto">
+        <sequence>
+          <element name="Tipo" type="xsd:string"></element>
+          <element name="RefExterna" type="xsd:string"></element>
+          <element name="Cubeta" type="xsd:string"></element>
+          <element name="DatosOrigen" type="xsd:string"></element>
+          <element name="Precintos">
+            <complexType>
+              <sequence>
+                <element minOccurs="0" maxOccurs="unbounded" name="Precinto" type="tns:SDTDatosNuevaRecepcionPendiente.Bulto.Precinto"></element>
+              </sequence>
+            </complexType>
+          </element>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfSDTDatosNuevaRecepcionPendiente.Bulto.Precinto">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Precinto" type="tns:SDTDatosNuevaRecepcionPendiente.Bulto.Precinto"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTDatosNuevaRecepcionPendiente.Bulto.Precinto">
+        <sequence>
+          <element name="PrecintoId" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+      <element name="WSNuevaRecepcionPendiente.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Datos" type="tns:SDTDatosNuevaRecepcionPendiente"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WSNuevaRecepcionPendiente.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Resultado" type="xsd:boolean"/>
+            <element minOccurs="1" maxOccurs="1" name="Messages" type="tns1:Messages"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema targetNamespace="GeneXus" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="GeoInventarios"/>
+      <complexType name="Messages">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Message" type="tns1:GeneXus.Common.Messages.Message"></element>
+        </sequence>
+      </complexType>
+      <complexType name="GeneXus.Common.Messages.Message">
+        <sequence>
+          <element name="Id" type="xsd:string"></element>
+          <element name="Type" type="xsd:byte"></element>
+          <element name="Description" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+    </schema>
+  </types>
+  <message name="WSNuevaRecepcionPendiente.ExecuteSoapIn">
+    <part name="parameters" element="tns:WSNuevaRecepcionPendiente.Execute"/>
+  </message>
+  <message name="WSNuevaRecepcionPendiente.ExecuteSoapOut">
+    <part name="parameters" element="tns:WSNuevaRecepcionPendiente.ExecuteResponse"/>
+  </message>
+  <portType name="WSNuevaRecepcionPendienteSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:WSNuevaRecepcionPendiente.ExecuteSoapIn"/>
+      <output message="wsdlns:WSNuevaRecepcionPendiente.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="WSNuevaRecepcionPendienteSoapBinding" type="wsdlns:WSNuevaRecepcionPendienteSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="GeoInventariosaction/AWSNUEVARECEPCIONPENDIENTE.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WSNuevaRecepcionPendiente">
+    <port name="WSNuevaRecepcionPendienteSoapPort" binding="wsdlns:WSNuevaRecepcionPendienteSoapBinding">
+      <soap:address location="https://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente</con:endpoint><con:endpoint>https://192.168.245.64:9093/geoinventarios/servlet/com.geocom.awsnuevarecepcionpendiente</con:endpoint></con:endpoints><con:operation id="4a9d7d42-fad0-414c-b8ad-1f534db063fe" isOneWay="false" action="GeoInventariosaction/AWSNUEVARECEPCIONPENDIENTE.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6b09bfc9-959e-4144-87ba-73bd54e5b6ee" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geo="GeoInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <geo:WSNuevaRecepcionPendiente.Execute>\r
+         <geo:Datos>\r
+            <geo:Local>5</geo:Local>\r
+            <geo:Tipo>ORDENCOMPRAPENDIENTE</geo:Tipo>\r
+            <geo:RefExterna>40001346</geo:RefExterna>\r
+            <geo:Proveedor>33636</geo:Proveedor>\r
+            <geo:Fecha>2019-01-23</geo:Fecha>\r
+            <geo:Obs>PRUEBA</geo:Obs>\r
+            <geo:Productos>\r
+               <geo:Producto>\r
+                  <geo:Linea>1</geo:Linea>\r
+                  <geo:Id>10</geo:Id>\r
+                  <geo:BultoRefExterna></geo:BultoRefExterna>\r
+                  <geo:Cantidad>20</geo:Cantidad>\r
+                  <geo:RefExterna></geo:RefExterna>\r
+                  <geo:DatosOrigen></geo:DatosOrigen>\r
+               </geo:Producto>\r 
+               <geo:Producto>
+                  <geo:Linea>2</geo:Linea>
+                  <geo:Id>4</geo:Id>
+                  <geo:BultoRefExterna></geo:BultoRefExterna>
+                  <geo:Cantidad>10</geo:Cantidad>
+                  <geo:RefExterna></geo:RefExterna>
+                  <geo:DatosOrigen></geo:DatosOrigen>
+               </geo:Producto>                            
+            </geo:Productos>\r
+            <geo:Bultos>\r
+            </geo:Bultos>\r
+         </geo:Datos>\r
+      </geo:WSNuevaRecepcionPendiente.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GeoInventariosaction/AWSNUEVARECEPCIONPENDIENTE.Execute"/><con:wsrmConfig version="1.2"/></con:call><con:call id="949e1238-0be7-4d0e-b4f7-f9780bc7d311" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://127.0.0.1:8080/geoinventarios15/servlet/com.geocom.awsnuevarecepcionpendiente</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geo="GeoInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <geo:WSNuevaRecepcionPendiente.Execute>\r
+         <geo:Datos>\r
+            <geo:Local>?</geo:Local>\r
+            <geo:Tipo>?</geo:Tipo>\r
+            <geo:RefExterna>?</geo:RefExterna>\r
+            <geo:Proveedor>?</geo:Proveedor>\r
+            <geo:Fecha>?</geo:Fecha>\r
+            <geo:Obs>?</geo:Obs>\r
+            <geo:Productos>\r
+               <!--Zero or more repetitions:-->\r
+               <geo:Producto>\r
+                  <geo:Linea>?</geo:Linea>\r
+                  <geo:Id>?</geo:Id>\r
+                  <geo:BultoRefExterna>?</geo:BultoRefExterna>\r
+                  <geo:Cantidad>?</geo:Cantidad>\r
+                  <geo:RefExterna>?</geo:RefExterna>\r
+                  <geo:DatosOrigen>?</geo:DatosOrigen>\r
+                  <geo:UnidadMedida>?</geo:UnidadMedida>\r
+               </geo:Producto>\r
+            </geo:Productos>\r
+            <geo:Bultos>\r
+               <!--Zero or more repetitions:-->\r
+               <geo:Bulto>\r
+                  <geo:Tipo>?</geo:Tipo>\r
+                  <geo:RefExterna>?</geo:RefExterna>\r
+                  <geo:Cubeta>?</geo:Cubeta>\r
+                  <geo:DatosOrigen>?</geo:DatosOrigen>\r
+                  <geo:Precintos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <geo:Precinto>\r
+                        <geo:PrecintoId>?</geo:PrecintoId>\r
+                     </geo:Precinto>\r
+                  </geo:Precintos>\r
+               </geo:Bulto>\r
+            </geo:Bultos>\r
+         </geo:Datos>\r
+      </geo:WSNuevaRecepcionPendiente.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="GeoInventariosaction/AWSNUEVARECEPCIONPENDIENTE.Execute"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="8363340e-dc8a-43a1-a040-f7776f06e4b7" wsaVersion="NONE" name="WSMensajeriaSinProcesarSoapBinding" type="wsdl" bindingName="{GeoInventarios}WSMensajeriaSinProcesarSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/geoinventarios/servlet/com.geocom.awsmensajeriasinprocesar?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/geoinventarios/servlet/com.geocom.awsmensajeriasinprocesar?wsdl"><con:part><con:url>http://localhost:8080/geoinventarios/servlet/com.geocom.awsmensajeriasinprocesar?wsdl</con:url><con:content><![CDATA[<definitions name="WSMensajeriaSinProcesar" targetNamespace="GeoInventarios" xmlns:wsdlns="GeoInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="GeoInventarios" xmlns:tns1="Genexus">
+  <types>
+    <schema targetNamespace="GeoInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="Genexus"/>
+      <complexType name="SDTMensajeriaSucursal">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTMensajeriaSucursal.SDTMensajeriaSucursalItem" type="tns:SDTMensajeriaSucursal.SDTMensajeriaSucursalItem"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTMensajeriaSucursal.SDTMensajeriaSucursalItem">
+        <sequence>
+          <element name="LocalId" type="xsd:string"></element>
+          <element name="MensajeriaSId" type="xsd:long"></element>
+          <element name="MensajeriaSFechaHora" type="xsd:dateTime" nillable="true"></element>
+          <element name="MensajeriaSDestino" type="xsd:string"></element>
+          <element name="MensajeriaSInterfaz" type="xsd:string"></element>
+          <element name="MensajeriaSDatos" type="xsd:string"></element>
+          <element name="MensajeriaSPrograma" type="xsd:string"></element>
+          <element name="MensajeriaSUsuario" type="xsd:long"></element>
+          <element name="MensajeriaSDestinoLocalId" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+      <element name="WSMensajeriaSinProcesar.Execute">
+        <complexType>
+          <sequence></sequence>
+        </complexType>
+      </element>
+      <element name="WSMensajeriaSinProcesar.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtmensajeriasucursal" type="tns:SDTMensajeriaSucursal"/>
+            <element minOccurs="1" maxOccurs="1" name="Resultado" type="xsd:boolean"/>
+            <element minOccurs="1" maxOccurs="1" name="Messages" type="tns1:Messages"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema targetNamespace="Genexus" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="GeoInventarios"/>
+      <complexType name="Messages">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Messages.Message" type="tns1:Messages.Message"></element>
+        </sequence>
+      </complexType>
+      <complexType name="Messages.Message">
+        <sequence>
+          <element name="Id" type="xsd:string"></element>
+          <element name="Type" type="xsd:byte"></element>
+          <element name="Description" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+    </schema>
+  </types>
+  <message name="WSMensajeriaSinProcesar.ExecuteSoapIn">
+    <part name="parameters" element="tns:WSMensajeriaSinProcesar.Execute"/>
+  </message>
+  <message name="WSMensajeriaSinProcesar.ExecuteSoapOut">
+    <part name="parameters" element="tns:WSMensajeriaSinProcesar.ExecuteResponse"/>
+  </message>
+  <portType name="WSMensajeriaSinProcesarSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:WSMensajeriaSinProcesar.ExecuteSoapIn"/>
+      <output message="wsdlns:WSMensajeriaSinProcesar.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="WSMensajeriaSinProcesarSoapBinding" type="wsdlns:WSMensajeriaSinProcesarSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="GeoInventariosaction/AWSMENSAJERIASINPROCESAR.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WSMensajeriaSinProcesar">
+    <port name="WSMensajeriaSinProcesarSoapPort" binding="wsdlns:WSMensajeriaSinProcesarSoapBinding">
+      <soap:address location="https://localhost:8080/geoinventarios/servlet/com.geocom.awsmensajeriasinprocesar"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:8080/geoinventarios/servlet/com.geocom.awsmensajeriasinprocesar</con:endpoint></con:endpoints><con:operation id="5b4807c4-abe2-4ce2-ab23-a67aadd4b708" isOneWay="false" action="GeoInventariosaction/AWSMENSAJERIASINPROCESAR.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a0944684-9833-438b-a431-e08720bc051c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/geoinventarios/servlet/com.geocom.awscenconfigiaf</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geo="GeoInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <geo:WSMensajeriaSinProcesar.Execute/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GeoInventariosaction/AWSMENSAJERIASINPROCESAR.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5ff75acb-8f61-4d7b-ac94-0571b05d4f35" wsaVersion="NONE" name="wscenconfigIAFSoapBinding" type="wsdl" bindingName="{GeoInventarios}wscenconfigIAFSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf?wsdl"><con:part><con:url>http://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf?wsdl</con:url><con:content><![CDATA[<definitions name="wscenconfigIAF" targetNamespace="GeoInventarios" xmlns:wsdlns="GeoInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns1="GeneXus" xmlns:tns="GeoInventarios">
+  <types>
+    <schema targetNamespace="GeneXus" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="GeoInventarios"/>
+      <complexType name="Messages">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="Message" type="tns1:GeneXus.Common.Messages.Message"></element>
+        </sequence>
+      </complexType>
+      <complexType name="GeneXus.Common.Messages.Message">
+        <sequence>
+          <element name="Id" type="xsd:string"></element>
+          <element name="Type" type="xsd:byte"></element>
+          <element name="Description" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="GeoInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <import namespace="GeneXus"/>
+      <element name="wscenconfigIAF.Execute">
+        <complexType>
+          <sequence></sequence>
+        </complexType>
+      </element>
+      <element name="wscenconfigIAF.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Resultado" type="xsd:boolean"/>
+            <element minOccurs="1" maxOccurs="1" name="Messages" type="tns1:Messages"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="wscenconfigIAF.ExecuteSoapIn">
+    <part name="parameters" element="tns:wscenconfigIAF.Execute"/>
+  </message>
+  <message name="wscenconfigIAF.ExecuteSoapOut">
+    <part name="parameters" element="tns:wscenconfigIAF.ExecuteResponse"/>
+  </message>
+  <portType name="wscenconfigIAFSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:wscenconfigIAF.ExecuteSoapIn"/>
+      <output message="wsdlns:wscenconfigIAF.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="wscenconfigIAFSoapBinding" type="wsdlns:wscenconfigIAFSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="GeoInventariosaction/AWSCENCONFIGIAF.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="wscenconfigIAF">
+    <port name="wscenconfigIAFSoapPort" binding="wsdlns:wscenconfigIAFSoapBinding">
+      <soap:address location="https://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf</con:endpoint></con:endpoints><con:operation id="361867a4-3d70-4ed6-9269-23d9a6f44e44" isOneWay="false" action="GeoInventariosaction/AWSCENCONFIGIAF.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a8ab1cd-1de0-4a08-83f5-0838ef905d38" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/geoinventarios15/servlet/com.geocom.awscenconfigiaf</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geo="GeoInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <geo:wscenconfigIAF.Execute/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GeoInventariosaction/AWSCENCONFIGIAF.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="a177aa26-e4ab-4f91-a05c-2fce3a5b6c1f" wsaVersion="NONE" name="DPStockProductoSoapBinding" type="wsdl" bindingName="{GeoInventarios}DPStockProductoSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto?wsdl"><con:part><con:url>http://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto?wsdl</con:url><con:content><![CDATA[<definitions name="DPStockProducto" targetNamespace="GeoInventarios" xmlns:wsdlns="GeoInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="GeoInventarios">
+  <types>
+    <schema targetNamespace="GeoInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="SDTStockProducto">
+        <sequence>
+          <element name="StkEstado" type="xsd:string"></element>
+          <element name="StkEntidadId" type="xsd:long"></element>
+          <element name="StkProductoId" type="xsd:string"></element>
+          <element name="StkUbicacionId" type="xsd:string"></element>
+          <element name="StkLoteIdPrv" type="xsd:string"></element>
+          <element name="StkFechaVto" type="xsd:date" nillable="true"></element>
+          <element name="StkSerieIdPrv" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfsvchar">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTStockLote">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTStockLoteItem" type="tns:SDTStockLote.SDTStockLoteItem"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTStockLote.SDTStockLoteItem">
+        <sequence>
+          <element name="StkLocalId" type="xsd:string"></element>
+          <element name="StkProductoId" type="xsd:string"></element>
+          <element name="StkUbicacionId" type="xsd:string"></element>
+          <element name="StkEntidadId" type="xsd:long"></element>
+          <element name="StkClienteId" type="xsd:long"></element>
+          <element name="StkLoteId" type="xsd:long"></element>
+          <element name="StkDisponible" type="xsd:int"></element>
+          <element name="StkReserva" type="xsd:int"></element>
+          <element name="StkEnUso" type="xsd:int"></element>
+          <element name="StkFechaVto" type="xsd:date" nillable="true"></element>
+          <element name="StkLoteIdPrv" type="xsd:string"></element>
+          <element name="StkSerieIdPrv" type="xsd:string"></element>
+          <element name="StkUnidadMedida" type="xsd:long"></element>
+        </sequence>
+      </complexType>
+      <element name="DPStockProducto.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtstockproducto" type="tns:SDTStockProducto"/>
+            <element minOccurs="1" maxOccurs="1" name="Locales" type="tns:ArrayOfsvchar"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DPStockProducto.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="ReturnValue" type="tns:SDTStockLote"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="DPStockProducto.ExecuteSoapIn">
+    <part name="parameters" element="tns:DPStockProducto.Execute"/>
+  </message>
+  <message name="DPStockProducto.ExecuteSoapOut">
+    <part name="parameters" element="tns:DPStockProducto.ExecuteResponse"/>
+  </message>
+  <portType name="DPStockProductoSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:DPStockProducto.ExecuteSoapIn"/>
+      <output message="wsdlns:DPStockProducto.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="DPStockProductoSoapBinding" type="wsdlns:DPStockProductoSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="GeoInventariosaction/ADPSTOCKPRODUCTO.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="DPStockProducto">
+    <port name="DPStockProductoSoapPort" binding="wsdlns:DPStockProductoSoapBinding">
+      <soap:address location="https://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto</con:endpoint></con:endpoints><con:operation id="37e44781-a71d-4038-b7f0-2116274a4eac" isOneWay="false" action="GeoInventariosaction/ADPSTOCKPRODUCTO.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2725fff9-aa85-405f-8369-1cf4cc2f58be" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/geoinventarios15/servlet/com.geocom.dpstockproducto</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geo="GeoInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <geo:DPStockProducto.Execute>\r
+         <geo:Sdtstockproducto>\r
+            <geo:StkEstado>ACTIVO</geo:StkEstado>\r
+            <geo:StkEntidadId>1</geo:StkEntidadId>\r
+            <geo:StkProductoId>1</geo:StkProductoId>\r
+            <geo:StkUbicacionId></geo:StkUbicacionId>\r
+            <geo:StkLoteIdPrv></geo:StkLoteIdPrv>\r
+            <geo:StkFechaVto></geo:StkFechaVto>\r
+            <geo:StkSerieIdPrv></geo:StkSerieIdPrv>\r
+         </geo:Sdtstockproducto>\r
+         <geo:Locales>\r
+            <geo:item>5</geo:item>\r
+         </geo:Locales>\r
+      </geo:DPStockProducto.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GeoInventariosaction/ADPSTOCKPRODUCTO.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5543a122-95c6-4ab5-8852-58d53251ebf0" wsaVersion="NONE" name="WSConsultaProductoSoapBinding" type="wsdl" bindingName="{CVInventarios}WSConsultaProductoSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto?wsdl"><con:part><con:url>http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto?wsdl</con:url><con:content><![CDATA[<definitions name="WSConsultaProducto" targetNamespace="CVInventarios" xmlns:wsdlns="CVInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="CVInventarios">
+  <types>
+    <schema targetNamespace="CVInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="SDTConsultaProducto">
+        <all>
+          <element name="ProductoCodigoBarra" type="xsd:string"></element>
+          <element name="ProductoId" type="xsd:string"></element>
+          <element name="ProductoDescripcion" type="xsd:string"></element>
+          <element name="ProductoUnidad" type="xsd:string"></element>
+          <element name="ProductoRefrigerado" type="xsd:boolean"></element>
+          <element name="ProductoRowa" type="xsd:boolean"></element>
+        </all>
+      </complexType>
+      <element name="WSConsultaProducto.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Productocodigobarra" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WSConsultaProducto.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtconsultaproducto" type="tns:SDTConsultaProducto"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="WSConsultaProducto.ExecuteSoapIn">
+    <part name="parameters" element="tns:WSConsultaProducto.Execute"/>
+  </message>
+  <message name="WSConsultaProducto.ExecuteSoapOut">
+    <part name="parameters" element="tns:WSConsultaProducto.ExecuteResponse"/>
+  </message>
+  <portType name="WSConsultaProductoSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:WSConsultaProducto.ExecuteSoapIn"/>
+      <output message="wsdlns:WSConsultaProducto.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="WSConsultaProductoSoapBinding" type="wsdlns:WSConsultaProductoSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="CVInventariosaction/AWSCONSULTAPRODUCTO.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WSConsultaProducto">
+    <port name="WSConsultaProductoSoapPort" binding="wsdlns:WSConsultaProductoSoapBinding">
+      <soap:address location="http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto</con:endpoint></con:endpoints><con:operation id="50fa93b8-c4c7-47f5-8cd7-325d51ed8c3b" isOneWay="false" action="CVInventariosaction/AWSCONSULTAPRODUCTO.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ad06b501-e775-43a8-b45c-8ea69214b895" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.1.2.19:8084/cvinventarios/servlet/awsconsultaproducto</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cvin="CVInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cvin:WSConsultaProducto.Execute>\r
+         <cvin:Productocodigobarra>7800068015830</cvin:Productocodigobarra>\r
+      </cvin:WSConsultaProducto.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CVInventariosaction/AWSCONSULTAPRODUCTO.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="928cedaa-a759-4027-9d81-0f9776996b3d" wsaVersion="NONE" name="CVCargarGuiaElectronicaSoapBinding" type="wsdl" bindingName="{CVInventarios}CVCargarGuiaElectronicaSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica?wsdl"><con:part><con:url>http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica?wsdl</con:url><con:content><![CDATA[<definitions name="CVCargarGuiaElectronica" targetNamespace="CVInventarios" xmlns:wsdlns="CVInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="CVInventarios">
+  <types>
+    <schema targetNamespace="CVInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="SDTGuiaElectronica">
+        <all>
+          <element name="NroGuia" type="xsd:int"></element>
+          <element name="LocalSCF" type="xsd:string"></element>
+          <element name="RUTProveedor" type="xsd:long"></element>
+          <element name="SucursalProveedor" type="xsd:int"></element>
+          <element name="FechaGuia" type="xsd:date"></element>
+          <element name="TipoGuia" type="xsd:string"></element>
+          <element name="NroPedido" type="xsd:long"></element>
+          <element name="TipoPedido" type="xsd:string"></element>
+          <element name="Rowa" type="xsd:boolean"></element>
+          <element name="Productos" type="tns:ArrayOfSDTProdGuiaElectronica"></element>
+        </all>
+      </complexType>
+      <complexType name="ArrayOfSDTProdGuiaElectronica">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTProdGuiaElectronica" type="tns:SDTProdGuiaElectronica"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTProdGuiaElectronica">
+        <all>
+          <element name="Producto" type="xsd:string"></element>
+          <element name="Cantidad" type="xsd:long"></element>
+          <element name="CostoTotal" type="xsd:long"></element>
+          <element name="NumeroGuia" type="xsd:string"></element>
+        </all>
+      </complexType>
+      <complexType name="SDTListaProducto">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTListaProducto.SDTListaProductoItem" type="tns:SDTListaProducto.SDTListaProductoItem"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTListaProducto.SDTListaProductoItem">
+        <all>
+          <element name="ProdId" type="xsd:string"></element>
+          <element name="PosRandom" type="xsd:long"></element>
+        </all>
+      </complexType>
+      <element name="CVCargarGuiaElectronica.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Guia" type="tns:SDTGuiaElectronica"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CVCargarGuiaElectronica.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Error" type="xsd:short"/>
+            <element minOccurs="1" maxOccurs="1" name="Errordesc" type="xsd:string"/>
+            <element minOccurs="1" maxOccurs="1" name="Productoserror" type="tns:SDTListaProducto"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CVCargarGuiaElectronica.ExecuteSoapIn">
+    <part name="parameters" element="tns:CVCargarGuiaElectronica.Execute"/>
+  </message>
+  <message name="CVCargarGuiaElectronica.ExecuteSoapOut">
+    <part name="parameters" element="tns:CVCargarGuiaElectronica.ExecuteResponse"/>
+  </message>
+  <portType name="CVCargarGuiaElectronicaSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:CVCargarGuiaElectronica.ExecuteSoapIn"/>
+      <output message="wsdlns:CVCargarGuiaElectronica.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="CVCargarGuiaElectronicaSoapBinding" type="wsdlns:CVCargarGuiaElectronicaSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="CVInventariosaction/ACVCARGARGUIAELECTRONICA.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CVCargarGuiaElectronica">
+    <port name="CVCargarGuiaElectronicaSoapPort" binding="wsdlns:CVCargarGuiaElectronicaSoapBinding">
+      <soap:address location="http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica</con:endpoint></con:endpoints><con:operation id="c42ed099-2565-4bea-a198-974f40834283" isOneWay="false" action="CVInventariosaction/ACVCARGARGUIAELECTRONICA.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ce2f2cd4-aeae-4f28-bb12-94d66a024714" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/cvinventarios/servlet/acvcargarguiaelectronica</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cvin="CVInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cvin:CVCargarGuiaElectronica.Execute>\r
+         <cvin:Guia>\r
+            <cvin:NroGuia>85859549</cvin:NroGuia>\r
+            <cvin:LocalSCF>10000</cvin:LocalSCF>\r
+            <cvin:RUTProveedor>91575000</cvin:RUTProveedor>\r
+            <cvin:SucursalProveedor>900301</cvin:SucursalProveedor>\r
+            <cvin:FechaGuia>2020-06-24</cvin:FechaGuia>\r
+            <cvin:TipoGuia>N</cvin:TipoGuia>\r
+            <cvin:NroPedido>32919987</cvin:NroPedido>\r
+            <cvin:TipoPedido>N</cvin:TipoPedido>\r
+            <cvin:Rowa>1</cvin:Rowa>\r
+            <cvin:Productos>\r
+               <cvin:SDTProdGuiaElectronica>\r
+                  <cvin:Producto>18014</cvin:Producto>\r
+                  <cvin:Cantidad>10</cvin:Cantidad>\r
+                  <cvin:CostoTotal>4522</cvin:CostoTotal>\r
+                  <cvin:NumeroGuia>32919987</cvin:NumeroGuia>\r
+               </cvin:SDTProdGuiaElectronica>\r
+               <cvin:SDTProdGuiaElectronica>\r
+                  <cvin:Producto>18015</cvin:Producto>\r
+                  <cvin:Cantidad>10</cvin:Cantidad>\r
+                  <cvin:CostoTotal>4522</cvin:CostoTotal>\r
+                  <cvin:NumeroGuia>32919987</cvin:NumeroGuia>\r
+               </cvin:SDTProdGuiaElectronica>\r
+            </cvin:Productos>\r
+         </cvin:Guia>\r
+      </cvin:CVCargarGuiaElectronica.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CVInventariosaction/ACVCARGARGUIAELECTRONICA.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="46e734ef-8938-47cd-8fb2-4c03c296ddf7" wsaVersion="NONE" name="ConsultaPedidoEspecialSoapBinding" type="wsdl" bindingName="{CVInventarios}ConsultaPedidoEspecialSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial?wsdl"><con:part><con:url>http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial?wsdl</con:url><con:content><![CDATA[<definitions name="ConsultaPedidoEspecial" targetNamespace="CVInventarios" xmlns:wsdlns="CVInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="CVInventarios">
+  <types>
+    <schema targetNamespace="CVInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <element name="ConsultaPedidoEspecial.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Cvlocalesid" type="xsd:string"/>
+            <element minOccurs="1" maxOccurs="1" name="Cvsolicitudpecodigo" type="xsd:long"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ConsultaPedidoEspecial.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtdatosxml" type="xsd:string"/>
+            <element minOccurs="1" maxOccurs="1" name="Error" type="xsd:byte"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="ConsultaPedidoEspecial.ExecuteSoapIn">
+    <part name="parameters" element="tns:ConsultaPedidoEspecial.Execute"/>
+  </message>
+  <message name="ConsultaPedidoEspecial.ExecuteSoapOut">
+    <part name="parameters" element="tns:ConsultaPedidoEspecial.ExecuteResponse"/>
+  </message>
+  <portType name="ConsultaPedidoEspecialSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:ConsultaPedidoEspecial.ExecuteSoapIn"/>
+      <output message="wsdlns:ConsultaPedidoEspecial.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="ConsultaPedidoEspecialSoapBinding" type="wsdlns:ConsultaPedidoEspecialSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="CVInventariosaction/ACONSULTAPEDIDOESPECIAL.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ConsultaPedidoEspecial">
+    <port name="ConsultaPedidoEspecialSoapPort" binding="wsdlns:ConsultaPedidoEspecialSoapBinding">
+      <soap:address location="http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial</con:endpoint></con:endpoints><con:operation id="49709098-3273-4377-ae6a-0fa5430b17f8" isOneWay="false" action="CVInventariosaction/ACONSULTAPEDIDOESPECIAL.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cb118cdc-bb19-4d50-97e4-0eb34b955376" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/cvinventarios/servlet/aconsultapedidoespecial</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cvin="CVInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cvin:ConsultaPedidoEspecial.Execute>\r
+         <cvin:Cvlocalesid>?</cvin:Cvlocalesid>\r
+         <cvin:Cvsolicitudpecodigo>?</cvin:Cvsolicitudpecodigo>\r
+      </cvin:ConsultaPedidoEspecial.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CVInventariosaction/ACONSULTAPEDIDOESPECIAL.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="e6b8969d-4b85-469f-bb26-e1bfaf54e745" wsaVersion="NONE" name="CVInicioIRDSoapBinding" type="wsdl" bindingName="{CVInventarios}CVInicioIRDSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8086/cvinventarios/servlet/acvinicioird?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8086/cvinventarios/servlet/acvinicioird?wsdl"><con:part><con:url>http://localhost:8086/cvinventarios/servlet/acvinicioird?wsdl</con:url><con:content><![CDATA[<definitions name="CVInicioIRD" targetNamespace="CVInventarios" xmlns:wsdlns="CVInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="CVInventarios">
+  <types>
+    <schema targetNamespace="CVInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <element name="CVInicioIRD.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Fechahora" type="xsd:string"/>
+            <element minOccurs="1" maxOccurs="1" name="Usuario" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CVInicioIRD.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Errordesc" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CVInicioIRD.ExecuteSoapIn">
+    <part name="parameters" element="tns:CVInicioIRD.Execute"/>
+  </message>
+  <message name="CVInicioIRD.ExecuteSoapOut">
+    <part name="parameters" element="tns:CVInicioIRD.ExecuteResponse"/>
+  </message>
+  <portType name="CVInicioIRDSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:CVInicioIRD.ExecuteSoapIn"/>
+      <output message="wsdlns:CVInicioIRD.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="CVInicioIRDSoapBinding" type="wsdlns:CVInicioIRDSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="CVInventariosaction/ACVINICIOIRD.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CVInicioIRD">
+    <port name="CVInicioIRDSoapPort" binding="wsdlns:CVInicioIRDSoapBinding">
+      <soap:address location="http://localhost:8086/cvinventarios/servlet/acvinicioird"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8086/cvinventarios/servlet/acvinicioird</con:endpoint></con:endpoints><con:operation id="cc55c321-e93d-43a5-8d05-d0dc87bb5289" isOneWay="false" action="CVInventariosaction/ACVINICIOIRD.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="80e4568b-4343-494b-9284-1829578d50fa" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8086/cvinventarios/servlet/acvinicioird</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cvin="CVInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cvin:CVInicioIRD.Execute>\r
+         <cvin:Fechahora>2020-08-20</cvin:Fechahora>\r
+         <cvin:Usuario>1</cvin:Usuario>\r
+      </cvin:CVInicioIRD.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CVInventariosaction/ACVINICIOIRD.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="9138d529-d851-4a4a-b2f7-437fdb56999a" wsaVersion="NONE" name="CVConsultaStockExpSoapBinding" type="wsdl" bindingName="{CVInventarios}CVConsultaStockExpSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp?wsdl"><con:part><con:url>http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp?wsdl</con:url><con:content><![CDATA[<definitions name="CVConsultaStockExp" targetNamespace="CVInventarios" xmlns:wsdlns="CVInventarios" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="CVInventarios">
+  <types>
+    <schema targetNamespace="CVInventarios" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="SDTListaProducto">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTListaProducto.SDTListaProductoItem" type="tns:SDTListaProducto.SDTListaProductoItem"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTListaProducto.SDTListaProductoItem">
+        <all>
+          <element name="ProdId" type="xsd:string"></element>
+          <element name="PosRandom" type="xsd:long"></element>
+        </all>
+      </complexType>
+      <complexType name="SDTConsultaStockExp">
+        <sequence>
+          <element minOccurs="0" maxOccurs="unbounded" name="SDTConsultaStockExp.SDTConsultaStockExpItem" type="tns:SDTConsultaStockExp.SDTConsultaStockExpItem"></element>
+        </sequence>
+      </complexType>
+      <complexType name="SDTConsultaStockExp.SDTConsultaStockExpItem">
+        <all>
+          <element name="ProdId" type="xsd:string"></element>
+          <element name="ProdStockVendible" type="xsd:int"></element>
+          <element name="ProdStockNoVendible" type="xsd:int"></element>
+          <element name="ProdErr" type="xsd:short"></element>
+          <element name="ProdErrDesc" type="xsd:string"></element>
+          <element name="ProductoUbicacion" type="xsd:string"></element>
+        </all>
+      </complexType>
+      <element name="CVConsultaStockExp.Execute">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtlistaproducto" type="tns:SDTListaProducto"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CVConsultaStockExp.ExecuteResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="Sdtconsultastockexp" type="tns:SDTConsultaStockExp"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CVConsultaStockExp.ExecuteSoapIn">
+    <part name="parameters" element="tns:CVConsultaStockExp.Execute"/>
+  </message>
+  <message name="CVConsultaStockExp.ExecuteSoapOut">
+    <part name="parameters" element="tns:CVConsultaStockExp.ExecuteResponse"/>
+  </message>
+  <portType name="CVConsultaStockExpSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:CVConsultaStockExp.ExecuteSoapIn"/>
+      <output message="wsdlns:CVConsultaStockExp.ExecuteSoapOut"/>
+    </operation>
+  </portType>
+  <binding name="CVConsultaStockExpSoapBinding" type="wsdlns:CVConsultaStockExpSoapPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Execute">
+      <soap:operation soapAction="CVInventariosaction/ACVCONSULTASTOCKEXP.Execute"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CVConsultaStockExp">
+    <port name="CVConsultaStockExpSoapPort" binding="wsdlns:CVConsultaStockExpSoapBinding">
+      <soap:address location="http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp</con:endpoint></con:endpoints><con:operation id="9b9cf72a-4403-4b35-89d7-7b72eaf85fcd" isOneWay="false" action="CVInventariosaction/ACVCONSULTASTOCKEXP.Execute" name="Execute" bindingOperationName="Execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="546b201f-5539-4719-8fd1-40c0dc58fce3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.61:8084/cvinventarios/servlet/acvconsultastockexp</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cvin="CVInventarios">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cvin:CVConsultaStockExp.Execute>\r
+         <cvin:Sdtlistaproducto>\r
+            <cvin:SDTListaProducto.SDTListaProductoItem>\r
+               <cvin:ProdId>101066</cvin:ProdId>\r
+               <cvin:PosRandom></cvin:PosRandom>\r
+            </cvin:SDTListaProducto.SDTListaProductoItem>\r
+         </cvin:Sdtlistaproducto>\r
+      </cvin:CVConsultaStockExp.Execute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CVInventariosaction/ACVCONSULTASTOCKEXP.Execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
